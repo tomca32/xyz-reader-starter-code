@@ -19,7 +19,8 @@
         <ImageView
             tools:src="@mipmap/ic_launcher"
             android:id="@+id/thumbnail"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
