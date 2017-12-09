@@ -59,6 +59,8 @@
         >
         <TextView
             android:id="@+id/article_body"
+            android:ellipsize="end"
+            android:maxLines="10"
             style="?android:attr/textAppearanceMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
