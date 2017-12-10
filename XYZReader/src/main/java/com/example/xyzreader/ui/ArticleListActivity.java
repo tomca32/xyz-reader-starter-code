@@ -51,10 +51,6 @@ public class ArticleListActivity extends ActionBarActivity implements
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         getLoaderManager().initLoader(0, null, this);
-
-        if (savedInstanceState == null) {
-            refresh();
-        }
     }
 
     private void refresh() {
