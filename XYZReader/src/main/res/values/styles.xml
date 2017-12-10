@@ -24,7 +24,8 @@
         <item name="actionMenuTextColor">@color/icons</item>
     </style>
 
-    <style name="collapsingToolbarLayoutTitleColor" parent="@android:style/TextAppearance.Large">
-        <item name="android:textColor">@color/icons</item>
+    <style name="toolbarStyle" parent="AppTheme">
+        <item name="android:textColorPrimary">@color/icons</item>
+        <item name="android:textColorSecondary">@color/icons</item>
     </style>
 </resources>

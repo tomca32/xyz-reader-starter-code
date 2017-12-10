@@ -24,4 +24,7 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
+
+    <color name="translucent_scrim_top">#3c000000</color>
+    <color name="translucent_scrim_top_center">#0C000000</color>
 </resources>
