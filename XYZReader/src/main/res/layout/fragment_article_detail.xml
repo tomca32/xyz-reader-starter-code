@@ -60,7 +60,8 @@
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/share_fab"
         app:fabSize="normal"
-        android:stateListAnimator="@anim/fab_state_list_anim"
+        android:elevation="@dimen/fab_elevation"
+        android:stateListAnimator="@animator/fab_state_list_anim"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
