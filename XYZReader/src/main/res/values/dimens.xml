@@ -8,5 +8,6 @@
     <dimen name="fab_press_translation_z">12dp</dimen>
     <dimen name="fab_margin">24dp</dimen>
     <dimen name="sheet_text_scrim_height_top">120dp</dimen>
+    <integer name="grid_columns">1</integer>
 
 </resources>

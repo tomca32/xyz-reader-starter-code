@@ -10,8 +10,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
@@ -21,9 +21,6 @@ import android.widget.TextView;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.UpdaterService;
-
-import java.text.SimpleDateFormat;
-import java.util.GregorianCalendar;
 
 /**
  * An activity representing a list of Articles. This activity has different presentations for
@@ -101,7 +98,7 @@ public class ArticleListActivity extends ActionBarActivity implements
         Adapter adapter = new Adapter(this, cursor);
         adapter.setHasStableIds(true);
         recyclerView.setAdapter(adapter);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(getResources().getInteger(R.integer.grid_columns), StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         runListEnterAnimation();
     }
