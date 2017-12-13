@@ -25,6 +25,7 @@ import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.squareup.picasso.Picasso;
 
+import static com.example.xyzreader.ui.MyApplication.picassoWithCache;
 import static com.example.xyzreader.util.Util.parsePublishedDate;
 
 /**
@@ -143,9 +144,9 @@ public class ArticleDetailFragment extends Fragment implements
 //                                + "</font>"));
 
             }
-            String bodyText = mCursor.getString(ArticleLoader.Query.BODY);
+            String bodyText = mCursor.getString(ArticleLoader.Query.BODY).substring(0, 3000);
             bodyView.setText(Html.fromHtml(bodyText.replaceAll("(\r\n|\n)", "<br />")));
-            Picasso.with(getActivity()).load(mCursor.getString(ArticleLoader.Query.PHOTO_URL)).into(mPhotoView);
+            picassoWithCache.load(mCursor.getString(ArticleLoader.Query.PHOTO_URL)).into(mPhotoView);
         } else {
             mRootView.setVisibility(View.GONE);
             bodyView.setText("N/A");

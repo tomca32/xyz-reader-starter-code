@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import static com.example.xyzreader.ui.MyApplication.picassoWithCache;
 import static com.example.xyzreader.util.Util.parsePublishedDate;
 class Adapter extends RecyclerView.Adapter<ArticleListActivity.ViewHolder> {
     private Cursor cursor;
@@ -88,7 +89,7 @@ class Adapter extends RecyclerView.Adapter<ArticleListActivity.ViewHolder> {
                             + "<br/>" + " by "
                             + cursor.getString(ArticleLoader.Query.AUTHOR)));
         }
-        Picasso.with(context).load(cursor.getString(ArticleLoader.Query.THUMB_URL)).into(holder.thumbnailView);
+        picassoWithCache.load(cursor.getString(ArticleLoader.Query.THUMB_URL)).into(holder.thumbnailView);
     }
 
     @Override
