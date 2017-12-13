@@ -94,6 +94,10 @@ public class ArticleListActivity extends ActionBarActivity implements
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+        if (!cursor.moveToFirst()) {
+            refresh();
+            return;
+        }
         Adapter adapter = new Adapter(this, cursor);
         adapter.setHasStableIds(true);
         recyclerView.setAdapter(adapter);
