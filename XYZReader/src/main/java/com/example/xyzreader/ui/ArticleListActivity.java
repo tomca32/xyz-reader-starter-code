@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.UpdaterService;
+import com.idescout.sql.SqlScoutServer;
 
 /**
  * An activity representing a list of Articles. This activity has different presentations for
@@ -35,6 +37,7 @@ public class ArticleListActivity extends ActionBarActivity implements
     private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SqlScoutServer.create(this, getPackageName());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_list);
 
@@ -98,7 +101,7 @@ public class ArticleListActivity extends ActionBarActivity implements
         Adapter adapter = new Adapter(this, cursor);
         adapter.setHasStableIds(true);
         recyclerView.setAdapter(adapter);
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(getResources().getInteger(R.integer.grid_columns), StaggeredGridLayoutManager.VERTICAL);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, getResources().getInteger(R.integer.grid_columns));
         recyclerView.setLayoutManager(layoutManager);
         runListEnterAnimation();
     }
