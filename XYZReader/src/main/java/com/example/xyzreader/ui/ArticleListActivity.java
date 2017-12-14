@@ -9,7 +9,7 @@ import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -22,13 +22,7 @@ import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.UpdaterService;
 
-/**
- * An activity representing a list of Articles. This activity has different presentations for
- * handset and tablet-size devices. On handsets, the activity presents a list of items, which when
- * touched, lead to a {@link ArticleDetailActivity} representing item details. On tablets, the
- * activity presents a grid of items as cards.
- */
-public class ArticleListActivity extends ActionBarActivity implements
+public class ArticleListActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor> {
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
