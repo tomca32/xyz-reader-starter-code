@@ -21,7 +21,6 @@ import android.widget.TextView;
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.UpdaterService;
-import com.idescout.sql.SqlScoutServer;
 
 /**
  * An activity representing a list of Articles. This activity has different presentations for
