@@ -34,7 +34,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/toolbarStyle"
                 app:navigationIcon="?attr/homeAsUpIndicator"
-             />
+             >
+            </android.support.v7.widget.Toolbar>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
     <android.support.v4.widget.NestedScrollView

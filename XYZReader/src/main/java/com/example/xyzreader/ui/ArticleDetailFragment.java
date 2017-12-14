@@ -15,6 +15,7 @@ import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -125,31 +126,29 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.animate().alpha(1);
             String titleText = mCursor.getString(ArticleLoader.Query.TITLE);
             toolbar.setTitle(titleText);
+
             Date publishedDate = parsePublishedDate(mCursor);
-            if (!publishedDate.before(START_OF_EPOCH.getTime())) {
-//                bylineView.setText(Html.fromHtml(
-//                        DateUtils.getRelativeTimeSpanString(
-//                                publishedDate.getTime(),
-//                                System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
-//                                DateUtils.FORMAT_ABBREV_ALL).toString()
-//                                + " by <font color='#ffffff'>"
-//                                + mCursor.getString(ArticleLoader.Query.AUTHOR)
-//                                + "</font>"));
+            String parsedDate = parseDate(publishedDate);
 
-            } else {
-                // If date is before 1902, just show the string
-//                bylineView.setText(Html.fromHtml(
-//                        outputFormat.format(publishedDate) + " by <font color='#ffffff'>"
-//                        + mCursor.getString(ArticleLoader.Query.AUTHOR)
-//                                + "</font>"));
+            toolbar.setSubtitle(parsedDate + " by " + mCursor.getString(ArticleLoader.Query.AUTHOR));
 
-            }
             String bodyText = mCursor.getString(ArticleLoader.Query.BODY).substring(0, 3000);
             bodyView.setText(Html.fromHtml(bodyText.replaceAll("(\r\n|\n)", "<br />")));
             picassoWithCache.load(mCursor.getString(ArticleLoader.Query.PHOTO_URL)).into(mPhotoView);
         } else {
             mRootView.setVisibility(View.GONE);
             bodyView.setText("N/A");
+        }
+    }
+
+    private String parseDate(Date publishedDate) {
+        if (!publishedDate.before(START_OF_EPOCH.getTime())) {
+            return DateUtils.getRelativeTimeSpanString(
+                    publishedDate.getTime(),
+                    System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
+                    DateUtils.FORMAT_ABBREV_ALL).toString();
+        } else {
+            return outputFormat.format(publishedDate);
         }
     }
 
